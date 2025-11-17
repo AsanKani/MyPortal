@@ -1,30 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Dashboard</title>
-  <style>body { font-family: sans-serif; background-color: #f0f0f0; text-align: center; }
-    h1 { color: #333; }
-    .link {
-      display: block;
-      background: white;
-      margin: 10px auto;
-      padding: 15px;
-      width: 80%;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #007aff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .link:hover { background: #eaeaea; }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portal</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f5f5;
+  }
+
+  /* Top Menu Bar */
+  .navbar {
+    display: flex;
+    background: #007aff;
+    color: white;
+  }
+
+  .nav-item {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .nav-item.active {
+    background: #005bbb;
+  }
+
+  /* Section container */
+  .section {
+    display: none;
+    padding: 15px;
+  }
+
+  .section.active {
+    display: block;
+  }
+
+  /* Links list style */
+  .link {
+    display: block;
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #007aff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .link:hover {
+    background: #eaeaea;
+  }
+</style>
+
+<script>
+  function showSection(sectionId, elm) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    // Remove active class from all tabs
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+    // Show selected
+    document.getElementById(sectionId).classList.add('active');
+    elm.classList.add('active');
+  }
+</script>
+
 </head>
 <body>
-  <h1>My Portal</h1>
-  <a class="link" href="https://www.google.com">Google</a>
+
+<!-- Top Menu -->
+<div class="navbar">
+  <div class="nav-item active" onclick="showSection('concerns', this)">Concerns</div>
+  <div class="nav-item" onclick="showSection('work', this)">Work Request</div>
+</div>
+
+<!-- Concerns Section -->
+<div class="section active" id="concerns">
+  <a class="link" href="https://forms.clickup.com/9016900501/f/8cq5ywn-3036/L4P8D45AOFFV4TG14I">Report a Maintenance Issue</a>
+  <a class="link" href="https://forms.clickup.com/9016486334/f/8cptady-5716/OGQ0L3SIYEG7VS4ABS">Process Automation (IT) Issue Report</a>
+  <a class="link" href="https://apps.powerapps.com/play/e/default-459c1d96-2833-49a2-83a3-18d1b15bb3c8/a/7b8eb3ea-eedc-4e49-9c28-02cee6fbddcf">Report an IT Administration Issue</a>
+  <a class="link" href="https://apps.powerapps.com/play/e/default-459c1d96-2833-49a2-83a3-18d1b15bb3c8/a/ab80325d-9a8c-4d60-b8cb-330cf3a699a8?tenantId=459c1d96-2833-49a2-83a3-18d1b15bb3c8&hint=332182dc-91ff-4911-a9a8-d8f13ba8ffae&sourcetime=1733234615358">Suggestion</a>
+  <a class="link" href="https://smadesign.sharepoint.com/sites/SMADesignSolutionsSite/SitePages/Submit-Concern.aspx?csf=1&web=1&e=ikxTve&CID=7402a3e1-5170-41fc-a378-9ac0692934ea">Submit a Concern (For Team Controllers only)</a>
+</div>
+
+<!-- Work Request Section -->
+<div class="section" id="work">
+  <a class="link" href="https://forms.clickup.com/9016900501/f/8cq5ywn-1596/9FIZL41NKRV582U0VS">Transport Request</a>
+  <a class="link" href="https://forms.clickup.com/9016900501/f/8cq5ywn-1616/2IJMK3EMXO932I8GRB">Maintenance Work Request</a>
+  <a class="link" href="https://forms.clickup.com/9016900501/f/8cq5ywn-1556/TYYQJM7F3HV5T8KQB4">Engineering Work Request</a>
+  <a class="link" href="https://forms.clickup.com/9016900501/f/8cq5ywn-796/LBVF95DEYOLL3OAVP2">Canteen Work Request</a>
+  <a class="link" href="https://forms.clickup.com/9016486334/f/8cptady-5736/TO1B7T3A9GQI84W316">Process Automation (Other IT) Work Request</a>
+  <a class="link" href="https://apps.powerapps.com/play/e/default-459c1d96-2833-49a2-83a3-18d1b15bb3c8/a/7b8eb3ea-eedc-4e49-9c28-02cee6fbddcf">Work Request PowerApps (Other Module)</a>
+  <a class="link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=lh2cRTMookmDoxjRsVuzyFjFkYuy595ChqVTsiQhbu9UOVdIRDhNQVRTWlNQQ1M5T1dJSjFXVUU3MiQlQCN0PWcu">Request to open office in Weekend</a>
+  
+</div>
+
 </body>
 </html>
-
-
-
-
